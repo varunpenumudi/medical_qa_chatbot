@@ -63,7 +63,7 @@ chain = prompt_template | llm
 
 def get_resp(user_query, placeholder=[]):
     questions = retriever.invoke(user_query)
-    answers = [ques + "\n" + "\n".join(qa_pairs[ques.page_content]) for ques in questions]
+    answers = [ques.page_content + "\n" + "\n".join(qa_pairs[ques.page_content]) for ques in questions]
 
     resp = chain.invoke({
         "context": "\n\n".join(answers),
