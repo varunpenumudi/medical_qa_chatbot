@@ -18,7 +18,7 @@ for msg in st.session_state.messages:
         st.markdown(msg['content'])
 
 
-question = st.chat_input("Question: ")
+question = st.chat_input("Please Enter Your Query")
 
 if question:
     with st.chat_message('user'):

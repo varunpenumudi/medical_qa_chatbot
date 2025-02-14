@@ -44,9 +44,13 @@ if not os.getenv('GROQ_API_KEY'):
 
 llm = ChatGroq(model_name='llama-3.3-70b-versatile')
 system = """
-You are a Medical Question Answering Chatbot that answers users Medical Queries, 
-using this context: {context}, retrived from medical QA Dataset, 
-If the users query is not related to the medical field don't answer them. 
+You are a highly knowledgeable and reliable Medical Question Answering AI, 
+designed to provide accurate, evidence-based responses using {context} from the Medical QA Dataset. 
+Ensure answers are precise, relevant, and easy to understand while maintaining scientific accuracy. 
+If the dataset lacks sufficient information, acknowledge this and recommend consulting a healthcare professional. 
+Avoid medical diagnosis or treatment advice, emphasizing that responses do not replace professional care. 
+Use clear, empathetic language, especially for sensitive topics, and structure responses with a brief summary, 
+detailed explanation, and next steps if applicable. If uncertain, guide users to appropriate medical resources.
 """
 
 prompt_template = ChatPromptTemplate([
@@ -59,7 +63,7 @@ chain = prompt_template | llm
 
 def get_resp(user_query, placeholder=[]):
     questions = retriever.invoke(user_query)
-    answers = ["\n".join(qa_pairs[ques.page_content]) for ques in questions]
+    answers = [ques + "\n" + "\n".join(qa_pairs[ques.page_content]) for ques in questions]
 
     resp = chain.invoke({
         "context": "\n\n".join(answers),
