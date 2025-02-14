@@ -2,7 +2,9 @@
 
 This project is a Medical Question Answering (Q&A) Chatbot developed as part of an internship task. It leverages the [MedQuAD dataset](https://github.com/abachaa/MedQuAD) to provide users with answers to medical questions. 
 
-The chatbot utilizes a **vector database for information retrieval**, powered by **ChromaDB** and **HuggingFaceEmbeddings**.  It employs **Groq's `qwen-2.5-32b` large language model** to generate responses based on the retrieved medical information. The user interacts with the chatbot through a user-friendly chat interface built with Streamlit.
+The chatbot utilizes a **vector database for information retrieval**, powered by **ChromaDB** and **HuggingFaceEmbeddings**.  It employs **Groq's `llama-3.2-70b-model` large language model** to generate responses based on the retrieved medical information. The user interacts with the chatbot through a user-friendly chat interface built with Streamlit.
+
+You can try this chatbot online [here](https://medicalquerychatbot.streamlit.app/)
 
 ## Project Structure
 
