@@ -1,6 +1,5 @@
 import pickle
 import os
-import getpass
 from typing import List
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_chroma import Chroma
@@ -38,9 +37,9 @@ print("Loaded VectorStore files")
 # GROQ Model
 # ----------------------------
 if not os.getenv('GROQ_API_KEY'):
-    os.environ['GROQ_API_KEY'] = getpass.getpass("GROQ_API_KEY: ")
+    os.environ['GROQ_API_KEY'] = input("GROQ_API_KEY: ")
 
-llm = ChatGroq(model_name='qwen-2.5-32b')
+llm = ChatGroq(model_name='llama-3.3-70b-versatile')
 system = """
 You are a Medical Question Answering Chatbot that answers users Medical Queries, 
 using this context: {context}, retrived from medical QA Dataset, 

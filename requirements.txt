@@ -4,3 +4,5 @@ langchain_core==0.3.35
 langchain_groq==0.2.4
 langchain_huggingface==0.1.2
 streamlit==1.41.1
+chromadb
+sentence-transformers
