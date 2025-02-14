@@ -2,6 +2,9 @@ import pickle
 import os
 from typing import List
 from langchain_huggingface import HuggingFaceEmbeddings
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 from langchain_chroma import Chroma
 from langchain_groq import ChatGroq
 from langchain.prompts.chat import ChatPromptTemplate
